@@ -6,7 +6,7 @@ from django.conf import settings
 
 class Subject(models.Model):
     name = models.CharField(max_length=255)
-    description = HTMLField
+    description = HTMLField(default='')
 
     #  description --> is a field that comes packaged with django-tinymce
     # it enables our field to render the WYSIWYG editor in our admin
