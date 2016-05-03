@@ -47,7 +47,7 @@ def user_vote_button(thread, subject, user):
 
     return ""
 
-
+@register.simple_tag
 def last_posted_user_name(thread):
     posts = thread.posts.all().order_by('-created_at')
     return posts.first().user.username
