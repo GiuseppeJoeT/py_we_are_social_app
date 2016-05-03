@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'paypal.standard.ipn',
     'magazines',
     'tinymce',
-    'debug_toolbar',
     'emoticons',
     'threads',
     'polls',
