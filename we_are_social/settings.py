@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -144,7 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),  # static directory at the project level
@@ -153,15 +154,19 @@ STATICFILES_DIRS = (
 # tynymce settings
 TYNYMCE_JS_ROOT = os.path.join(BASE_DIR, "static", 'js', 'tinymce', 'tinymce.min.js')
 
-'''# Stripe environment variables
-STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', '<replace this with your stripe publishable code>')
-STRIPE_SECRET = os.getenv('STRIPE_SECRET', '<replace this with your stripe secret code>')'''
 
 
 # Stripe environment variables
-STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_nbWefqblVg8HnYsFmpcld8qj')
-STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_N35jP51CRqW4FKBMa8MAL1A4')
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 SITE_URL = 'http://127.0.0.1:8000'
 PAYPAL_NOTIFY_URL = 'https://291e2d8f.ngrok.io/a-very-hard-to-guess-url/'
-PAYPAL_RECEIVER_EMAIL = 'aaron@codeinstitute.net'
+PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_RECEIVER_EMAIL')
+
+# MySQL Clear DB
+DATABASES['default'] = dj_database_url.parse(
+    "mysql://b82205813f9748:90aa7947@eu-cdbr-west-01.cleardb.com/heroku_cb52881c0004c6d")
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
