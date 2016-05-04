@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'emoticons',
     'threads',
     'polls',
+    'contact',
     'rest_framework',
 ]
 
