@@ -23,6 +23,7 @@ from magazines import views as magazine_views
 from accounts.views import register, profile, login, logout, cancel_subscription, subscriptions_webhook
 from threads import views as forum_views
 from polls import api_views
+from contact import views as contact_views
 from django.contrib.staticfiles import views as static_views
 from .settings import MEDIA_ROOT
 
@@ -62,6 +63,9 @@ urlpatterns = [
 
     # Polls URLs
     url(r'^thread/vote/(?P<thread_id>\d+)/(?P<subject_id>\d+)$', forum_views.thread_vote, name='cast_vote'),
+
+    # Contact URLs
+    url(r'^contact/', contact_views.contact, name='contact'),
 
     # API URLs
     url(r'^threads/polls/$', api_views.PollViewSet.as_view()),
