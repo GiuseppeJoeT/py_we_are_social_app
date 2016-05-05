@@ -12,7 +12,7 @@ def contact(request):
             email.from_email = form.cleaned_data.get('email')
             email.to = ['tiberiweb@gmail.com']
             email.topic = form.cleaned_data.get('topic')
-            email.body = form.form.cleaned_data.get('message')
+            email.body = form.cleaned_data.get('message')
             our_form = form.save(commit=False)
             our_form.save()
             email.send()
