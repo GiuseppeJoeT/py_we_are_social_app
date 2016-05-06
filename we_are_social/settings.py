@@ -32,7 +32,7 @@ SITE_ID = 2
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tiberiweb@gmail.com'
-EMAIL_HOST_PASSWORD = 'gmail_psw'
+EMAIL_HOST_PASSWORD = os.getenv('gmail_psw')
 EMAIL_PORT = 587
 
 # Application definition
