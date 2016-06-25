@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^$', views.get_index),
 
     # Auth URLs
-    url(r'^pages/', include('django.contrib.flatpages.urls')),
+    url(r'^about/', include('django.contrib.flatpages.urls')),
     url(r'^register/$', register, name='register'),
     url(r'^profile/$', profile, name='profile'),
     url(r'^login/$', login, name='login'),
